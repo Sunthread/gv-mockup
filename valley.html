@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grace Valley — App Home (Valley Edition)</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0E2438; font-family:'Montserrat',sans-serif; padding:48px 20px 60px; }
+  .intro { text-align:center; color:#fff; margin-bottom:30px; }
+  .intro h1 { font-size:26px; font-weight:800; letter-spacing:-.3px; }
+  .intro .accent { font-family:'Lora',serif; font-style:italic; font-weight:600; color:#E9A23B; }
+  .intro p { color:#9FB1C4; font-size:14px; margin-top:10px; max-width:580px; margin-left:auto; margin-right:auto; line-height:1.55; }
+  .stage { display:flex; justify-content:center; }
+  .col { display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .phone { width:393px; border-radius:48px; border:8px solid #000; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.55); flex-shrink:0; }
+  .status { display:flex; justify-content:space-between; font-size:12px; font-weight:600; padding:14px 24px 0; }
+  .homebar { display:flex; justify-content:center; padding:6px 0 10px; }
+  .homebar div { width:120px; height:5px; border-radius:3px; }
+  .nav { display:flex; padding:10px 6px 4px; border-top:1px solid; }
+  .nav div { flex:1; text-align:center; font-size:9px; font-weight:600; }
+  .nav svg { display:block; margin:0 auto 2px; }
+  .minilabel { display:flex; align-items:center; gap:11px; }
+  .minilabel .rule { width:34px; height:2px; background:#E9A23B; }
+  .minilabel span { color:#CE8A28; font-size:11px; font-weight:800; letter-spacing:2.5px; }
+  .tile { border:1px solid #ECE9E3; border-radius:16px; padding:13px 6px 11px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:7px; }
+  .tile p { font-size:10.5px; font-weight:700; color:#16314F; letter-spacing:.2px; }
+  .sub { color:#9FB1C4; font-size:12.5px; max-width:393px; text-align:center; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>App Home &mdash; <span class="accent">Valley Edition</span></h1>
+  <p>Models the website &mdash; same white / navy / amber, the serif-italic accent, the rule-tick labels &mdash; but calmer than the site, with a quick-access launchpad up top so people find what they need in one tap.</p>
+</div>
+
+<div class="stage">
+<div class="col">
+  <div class="phone" style="background:#FFFFFF;">
+    <div class="status" style="color:#1C2530;"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+
+    <!-- Header -->
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 22px 12px;">
+      <img src="logo-navy.png" alt="GraceValley Church" style="width:146px;">
+      <div style="width:34px; height:34px; border-radius:50%; background:#16314F; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600;">M</div>
+    </div>
+
+    <!-- Compact hero (less cinematic): contained rounded photo -->
+    <div style="margin:0 18px; border-radius:20px; overflow:hidden; position:relative;">
+      <img src="hero-welcome-hd.jpg" alt="" style="width:100%; height:178px; object-fit:cover; display:block;">
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,18,30,0) 35%, rgba(10,18,30,.82) 100%);"></div>
+      <div style="position:absolute; left:18px; right:18px; bottom:16px;">
+        <p style="color:#fff; font-size:26px; font-weight:800; line-height:1.05; letter-spacing:-.4px;">Welcome <em style="font-family:'Lora',serif; font-weight:600; font-style:italic; color:#E9A23B;">home.</em></p>
+        <p style="color:rgba(255,255,255,.9); font-size:11.5px; font-weight:600; margin-top:6px;">Sundays 10:30 AM &middot; Wednesdays 6:30 PM</p>
+      </div>
+    </div>
+
+    <!-- FINDABILITY: quick-access launchpad -->
+    <div style="padding:22px 22px 12px;">
+      <div class="minilabel"><span class="rule"></span><span>I NEED TO&hellip;</span></div>
+    </div>
+    <div style="padding:0 18px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px;">
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><path d="M12 3 l2.5 5 5.5 .8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8 Z"/></svg><p>New Here</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><path d="M12 21 C8 17 3 13.5 3 9 a5 5 0 0 1 9-2 5 5 0 0 1 9 2 c0 4.5-5 8-9 12 Z"/></svg><p>Give</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M10 8 L16 12 L10 16 Z"/></svg><p>Watch</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9 H21 M8 3 V6 M16 3 V6"/></svg><p>Events</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><circle cx="9" cy="8" r="3.4"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M3 19 c0-3 3-5 6-5 s6 2 6 5 M15 14.5 c2.6 0 6 1.4 6 4.5"/></svg><p>Groups</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><path d="M12 21 C8 17 3 13.5 3 9 a5 5 0 0 1 9-2 5 5 0 0 1 9 2 c0 4.5-5 8-9 12 Z"/><path d="M8 12 l2.5 2.5 L16 9"/></svg><p>Serve</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20 c0-4 3.5-6.5 7-6.5 s7 2.5 7 6.5"/></svg><p>Kids</p></div>
+      <div class="tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><path d="M5 12 l4 4 L19 6"/></svg><p>Check-In</p></div>
+    </div>
+
+    <!-- This week (site's "This week in the valley") -->
+    <div style="padding:24px 22px 12px;">
+      <div class="minilabel"><span class="rule"></span><span>THIS WEEK</span></div>
+      <p style="font-size:24px; font-weight:800; color:#16314F; line-height:1.05; margin-top:11px;">In the <em style="font-family:'Lora',serif; font-weight:600; font-style:italic; color:#CE8A28;">valley.</em></p>
+    </div>
+    <div style="padding:0 18px; display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; align-items:center; gap:13px; border:1px solid #ECE9E3; border-radius:16px; padding:11px 14px;">
+        <div style="min-width:46px; text-align:center; background:#16314F; border-radius:11px; padding:7px 0;"><p style="font-size:9px; font-weight:800; color:#E9A23B;">SUN</p><p style="font-size:17px; font-weight:800; color:#fff; line-height:1;">14</p></div>
+        <div style="flex:1;"><p style="font-size:13px; font-weight:800; color:#16314F;">Sunday Worship</p><p style="font-size:11px; color:#6B7280; margin-top:1px;">10:30 AM &middot; 4570 Mackinaw Rd</p></div>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="3"><path d="M9 5 L16 12 L9 19"/></svg>
+      </div>
+      <div style="display:flex; align-items:center; gap:13px; border:1px solid #ECE9E3; border-radius:16px; padding:11px 14px;">
+        <div style="min-width:46px; text-align:center; background:#16314F; border-radius:11px; padding:7px 0;"><p style="font-size:9px; font-weight:800; color:#E9A23B;">WED</p><p style="font-size:17px; font-weight:800; color:#fff; line-height:1;">17</p></div>
+        <div style="flex:1;"><p style="font-size:13px; font-weight:800; color:#16314F;">Wednesday Night</p><p style="font-size:11px; color:#6B7280; margin-top:1px;">6:30 PM &middot; all ages</p></div>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="3"><path d="M9 5 L16 12 L9 19"/></svg>
+      </div>
+    </div>
+
+    <!-- Echo of site's photo category cards -->
+    <div style="padding:24px 18px 0; display:flex; gap:12px;">
+      <div style="flex:1; border-radius:16px; overflow:hidden; position:relative;">
+        <img src="hero-pastor-hd.jpg" alt="" style="width:100%; height:118px; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,18,30,.1), rgba(10,18,30,.78));"></div>
+        <div style="position:absolute; left:12px; bottom:11px;"><p style="color:#E9A23B; font-size:9px; font-weight:800; letter-spacing:1.5px;">MESSAGE</p><p style="color:#fff; font-size:13px; font-weight:700; margin-top:2px;">Catch up on Sunday</p></div>
+      </div>
+      <div style="flex:1; border-radius:16px; overflow:hidden; position:relative;">
+        <img src="hero-worship-hd.jpg" alt="" style="width:100%; height:118px; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,18,30,.1), rgba(10,18,30,.78));"></div>
+        <div style="position:absolute; left:12px; bottom:11px;"><p style="color:#E9A23B; font-size:9px; font-weight:800; letter-spacing:1.5px;">GROUPS</p><p style="color:#fff; font-size:13px; font-weight:700; margin-top:2px;">Find your people</p></div>
+      </div>
+    </div>
+
+    <!-- Navy welcome block w/ amber pill (site's "We're glad you're here") -->
+    <div style="margin:22px 18px 22px; background:#16314F; border-radius:18px; padding:20px 20px; position:relative; overflow:hidden;">
+      <svg viewBox="0 0 390 160" preserveAspectRatio="none" style="position:absolute; inset:0; width:100%; height:100%; opacity:.07;" aria-hidden="true"><path d="M-20,40 L120,120 L260,40 L400,120" stroke="#fff" stroke-width="14" fill="none"/><path d="M-20,95 L120,175 L260,95 L400,175" stroke="#fff" stroke-width="14" fill="none"/></svg>
+      <div style="position:relative;">
+        <p style="color:#E9A23B; font-size:10px; font-weight:800; letter-spacing:2px;">WE'RE GLAD YOU'RE HERE</p>
+        <p style="color:#fff; font-size:16px; font-weight:700; line-height:1.35; margin-top:8px;">First time? We'll save you a seat and walk you in.</p>
+        <div style="display:inline-block; margin-top:14px; background:#E9A23B; border-radius:30px; padding:11px 24px; color:#16314F; font-weight:800; font-size:12.5px; letter-spacing:.4px;">PLAN YOUR VISIT</div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav" style="background:#fff; border-color:#ECE9E3; color:#9AA3AC;">
+      <div style="color:#E9A23B;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E9A23B" stroke-width="2"><path d="M3 11 L12 3 L21 11 V21 H14 V14 H10 V21 H3 Z"/></svg>Home</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AC" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9 H21 M8 3 V6 M16 3 V6"/></svg>Events</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AC" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M10 8 L16 12 L10 16 Z"/></svg>Watch</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AC" stroke-width="2"><path d="M12 21 C8 17 3 13.5 3 9 a5 5 0 0 1 9-2 5 5 0 0 1 9 2 c0 4.5-5 8-9 12 Z"/></svg>Give</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3AC" stroke-width="2"><path d="M4 6 H20 M4 12 H20 M4 18 H20"/></svg>More</div>
+    </div>
+    <div class="homebar" style="background:#fff;"><div style="background:#1C2530;"></div></div>
+  </div>
+  <p class="sub">Calmer hero, an <strong style="color:#E9A23B;">I need to&hellip;</strong> launchpad for one-tap access, this-week rows, a nod to the site's photo cards, and the navy "plan your visit" block.</p>
+</div>
+</div>
+
+</body>
+</html>
