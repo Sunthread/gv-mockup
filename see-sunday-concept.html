@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>See Sunday Before Sunday — Concept Preview</title>
+<meta name="description" content="Concept preview: a first-person walk-through of a Sunday at Grace Valley, with commentary on what each slide is designed to do.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="See Sunday Before Sunday — Concept Preview">
+<meta property="og:description" content="The walk-through concept, with the thinking behind every slide.">
+
+<!-- =============================================================
+  CONCEPT PREVIEW of "See Sunday Before Sunday".
+  Same 9 real scenes as sunday.html, but each scene carries a
+  commentary card explaining its INTENT. A toggle (top-right) hides
+  all commentary so you can preview it exactly as a guest would.
+  This page is noindex and lives separate from the real walk-through.
+============================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16314F; --navy-dark:#0E2438; --ink:#081422; --steel:#3A6E8F;
+    --amber:#E9A23B; --amber-hover:#CE8A28; --amber-lt:#F4BE63;
+    --gray:#F2F1EE; --white:#FFFFFF; --charcoal:#1C2530;
+    --maxw:1280px; --ease:cubic-bezier(.22,.61,.36,1);
+    --serif:'Fraunces',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:#fff;background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%;height:auto}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:.92rem;
+    padding:1.05rem 2.05rem;border-radius:999px;transition:.25s var(--ease);cursor:pointer;border:2px solid transparent;white-space:nowrap}
+  .btn-amber{background:var(--amber);color:var(--navy-dark)}
+  .btn-amber:hover{background:var(--amber-hover);transform:translateY(-3px);box-shadow:0 16px 34px rgba(233,162,59,.42)}
+  .btn-ghost{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.6);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{background:#fff;color:var(--navy)}
+
+  /* SLIM NAV */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;background:rgba(8,20,34,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .logo img{height:34px;width:auto}
+  .nav-close{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#cdd8e2;transition:.2s}
+  .nav-close:hover{color:var(--amber-lt)}
+
+  /* CONCEPT TOGGLE */
+  .concept-toggle{position:fixed;top:78px;right:16px;z-index:202;display:inline-flex;align-items:center;gap:.45rem;cursor:pointer;
+    color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+    background:rgba(233,162,59,.16);border:1px solid rgba(233,162,59,.6);padding:.5rem .85rem;border-radius:999px;
+    backdrop-filter:blur(8px);transition:.2s var(--ease)}
+  .concept-toggle:hover{background:var(--amber);color:var(--navy-dark);border-color:var(--amber)}
+
+  /* PROGRESS */
+  .pbar{position:fixed;top:64px;left:0;height:3px;width:0;background:var(--amber);z-index:201;transition:width .3s var(--ease)}
+  .pstep{position:fixed;left:0;bottom:0;z-index:201;padding:16px 0 14px;width:100%;pointer-events:none;
+    background:linear-gradient(transparent,rgba(8,20,34,.88))}
+  .pstep .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .pstep .left{display:flex;align-items:center;gap:.85rem}
+  .pstep .num{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--amber-lt)}
+  .pstep .lbl{font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+  .pstep .cta{pointer-events:auto;display:inline-flex;align-items:center;gap:.4rem;font-size:.74rem;font-weight:800;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--navy-dark);background:var(--amber);
+    padding:.52rem .95rem;border-radius:999px;transition:.2s var(--ease)}
+  .pstep .cta:hover{background:var(--amber-hover);transform:translateY(-2px)}
+
+  /* SCENES */
+  .scenes{scroll-snap-type:y proximity}
+  .scene{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;
+    scroll-snap-align:start;overflow:hidden;
+    background:
+      linear-gradient(180deg,rgba(8,20,34,.55) 0%,rgba(8,20,34,.12) 38%,rgba(8,20,34,.5) 70%,rgba(8,20,34,.97) 100%),
+      var(--img,none) center/cover no-repeat,
+      var(--tone, radial-gradient(120% 90% at 70% 12%, #1b3c61 0%, var(--navy) 42%, var(--navy-dark) 100%));}
+  /* subtle "valley rows" motif */
+  .scene::after{content:"";position:absolute;inset:0;z-index:0;opacity:.045;pointer-events:none;
+    background-image:repeating-linear-gradient(115deg,#fff 0 2px,transparent 2px 70px);}
+  /* ghost subject icon — makes each placeholder distinct */
+  .ghost{position:absolute;z-index:1;right:-3%;top:50%;transform:translateY(-50%);
+    width:min(52vw,540px);opacity:.07;color:#a9cae6;pointer-events:none}
+  .ghost svg{width:100%;height:auto;display:block}
+  .scene.alt .ghost{right:auto;left:-3%}
+
+  .scene-inner{position:relative;z-index:2;width:100%;padding:118px 0 104px;max-width:54ch}
+  .scene.alt .scene-inner{margin-left:auto;text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+  .num-lg{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.4rem,6.4vw,4.2rem);color:var(--amber-lt);line-height:1;opacity:.95}
+  .scene h2{font-size:clamp(2.1rem,6.2vw,4.4rem);font-weight:900;line-height:1.03;letter-spacing:-.03em;margin:.35rem 0 0;text-shadow:0 4px 50px rgba(0,0,0,.45)}
+  .scene h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--amber)}
+  .scene p{font-size:clamp(1.04rem,2.2vw,1.28rem);max-width:46ch;margin-top:1.1rem;color:#e9eff6}
+  .pill{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.5rem;padding:.55rem 1.05rem;border-radius:999px;
+    background:rgba(233,162,59,.16);border:1px solid rgba(233,162,59,.55);color:#ffdca0;font-size:.85rem;font-weight:700}
+  .pill::before{content:"✓";font-weight:900}
+
+  /* COMMENTARY CARD */
+  .note{margin-top:1.7rem;max-width:44ch;padding:1.05rem 1.2rem;border-radius:14px;text-align:left;
+    border:1px solid rgba(233,162,59,.5);background:linear-gradient(180deg,rgba(9,20,34,.74),rgba(9,20,34,.88));
+    backdrop-filter:blur(7px);box-shadow:0 14px 34px rgba(0,0,0,.34)}
+  .scene.alt .note{margin-left:auto}
+  .note .nlabel{font-size:.62rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.55rem}
+  .note .nlabel::before{content:"";width:18px;height:2px;background:var(--amber)}
+  .note p.ntxt{font-size:.93rem;line-height:1.55;margin:.6rem 0 0;color:#dde7f1;max-width:none}
+  .note .nrow{margin-top:.5rem;font-size:.85rem;line-height:1.5;color:#b9c7d6}
+  .note .nrow b{color:#fff;font-weight:700}
+  body.hide-notes .note{display:none}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(32px);transition:.85s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.22s}.rv.d3{transition-delay:.34s}.rv.d4{transition-delay:.46s}
+
+  /* INTRO */
+  .intro{align-items:center;text-align:center;overflow:visible}
+  .intro .scene-inner{padding:104px 0;display:flex;flex-direction:column;align-items:center;max-width:none}
+  .intro .ghost{left:50%;right:auto;transform:translate(-50%,-50%);width:min(74vw,660px);opacity:.05}
+  .eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-lt);display:inline-flex;align-items:center;gap:.8rem}
+  .eyebrow::before,.eyebrow::after{content:"";width:34px;height:2px;background:currentColor;opacity:.85}
+  .intro h1{font-size:clamp(2.7rem,8.5vw,6rem);font-weight:900;line-height:1;letter-spacing:-.035em;margin:1.4rem 0 0}
+  .intro h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--amber)}
+  .intro .sub{font-size:clamp(1.05rem,2.4vw,1.32rem);max-width:42ch;margin:1.6rem auto 0;color:#dde7f1}
+  .intro .note{margin-left:auto;margin-right:auto;max-width:50ch;text-align:left}
+  .intro .go{margin-top:2.4rem}
+  .cue{margin-top:2.8rem;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65);animation:bob 2s var(--ease) infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  /* INTERACTIVE CHOOSER */
+  .chooser{margin-top:1.9rem;max-width:560px;margin-inline:auto}
+  .chooser-q{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.6vw,1.6rem);color:#fff;margin-bottom:1.1rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+  .chip{display:inline-flex;align-items:center;padding:.7rem 1.15rem;border-radius:999px;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.28);color:#fff;font-weight:600;font-size:.92rem;cursor:pointer;transition:.2s var(--ease)}
+  .chip:hover{background:var(--amber);color:var(--navy-dark);border-color:var(--amber);transform:translateY(-2px)}
+  .walk-all{display:inline-block;margin-top:1.4rem;color:var(--amber-lt);font-weight:600;font-size:.9rem}
+  .walk-all span{display:inline-block;transition:.2s}
+  .walk-all:hover span{transform:translateY(3px)}
+
+  /* TOUR CONTROLS */
+  .tour{position:fixed;right:16px;bottom:88px;z-index:201;display:flex;flex-direction:column;gap:9px}
+  .tour button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(8,20,34,.62);
+    backdrop-filter:blur(8px);color:#fff;font-size:1.15rem;cursor:pointer;transition:.2s var(--ease);display:flex;align-items:center;justify-content:center}
+  .tour button:hover:not(:disabled){background:var(--amber);color:var(--navy-dark);border-color:var(--amber)}
+  .tour button:disabled{opacity:.3;cursor:default}
+  @media(max-width:600px){.tour{bottom:80px;right:12px}.tour button{width:42px;height:42px}}
+
+  /* FINAL */
+  .final{align-items:center;text-align:center}
+  .final .scene-inner{display:flex;flex-direction:column;align-items:center;max-width:none}
+  .final .ghost{left:50%;right:auto;transform:translate(-50%,-50%);width:min(60vw,520px);opacity:.06}
+  .final h2{max-width:18ch;margin-inline:auto}
+  .final .note{margin-left:auto;margin-right:auto;text-align:left}
+  .final .corner{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);color:var(--amber-lt);margin-top:1.3rem}
+  .final .acts{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+  .final .restart{margin-top:1.7rem;font-size:.82rem;letter-spacing:.05em;color:rgba(255,255,255,.6)}
+  .final .restart:hover{color:var(--amber-lt)}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#cdd8e2;padding:60px 0 40px;font-size:.95rem;border-top:1px solid rgba(255,255,255,.08)}
+  .foot-grid{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer img.flogo{height:40px}
+  .socials{display:flex;gap:.7rem}
+  .socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-weight:700;transition:.2s}
+  .socials a:hover{background:var(--amber);color:var(--navy-dark);transform:translateY(-3px)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#7a8fa1;font-size:.85rem}
+
+  @media(max-width:600px){
+    .wrap{padding:0 22px}
+    .scene-inner{padding:100px 0 104px;max-width:100%}
+    .scene.alt .scene-inner{text-align:left;align-items:flex-start;margin-left:0}
+    .scene.alt .note{margin-left:0}
+    .scene.alt .ghost{left:auto;right:-8%}
+    .ghost{opacity:.06;width:min(72vw,420px)}
+    .pstep .cta{padding:.46rem .8rem;font-size:.7rem}
+    .concept-toggle{top:72px;right:10px;font-size:.64rem;padding:.42rem .7rem}
+    .intro{min-height:auto}
+    .intro .scene-inner{padding:96px 0 72px}
+    .chooser{margin-top:1.3rem}
+    .note{max-width:100%}
+  }
+  @media(max-height:620px){
+    .scene{min-height:auto}
+    .scene-inner{padding:88px 0 84px}
+    .scenes{scroll-snap-type:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+    .scenes{scroll-snap-type:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Grace Valley Church home"><img src="logo-white.png" alt="Grace Valley Church"></a>
+    <a href="index.html" class="nav-close">✕ <span>Close</span></a>
+  </div>
+</header>
+
+<button class="concept-toggle" id="ctoggle" aria-label="Toggle commentary">– Hide commentary</button>
+
+<div class="pbar" id="pbar"></div>
+<div class="pstep" id="pstep"><div class="wrap">
+  <div class="left"><span class="num" id="pnum">00</span><span class="lbl" id="plbl">Before you go</span></div>
+  <a class="cta" href="https://gracevalleychurch.churchcenter.com/people/forms/1105254" target="_blank" rel="noopener">Plan a visit →</a>
+</div></div>
+
+<main class="scenes" id="scenes">
+
+  <!-- INTRO -->
+  <section class="scene intro" id="top" data-step="0" data-label="Before you go" style="--tone:radial-gradient(130% 110% at 50% 8%, #1c4068 0%, #16314F 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/><path d="M12 2v3"/><path d="M9 11h6"/></svg></div>
+    <div class="wrap scene-inner">
+      <span class="eyebrow rv">Grace Valley Church</span>
+      <h1 class="rv d1">See Sunday<br><em>before</em> Sunday.</h1>
+      <p class="sub rv d2">First visits are nerve-wracking. So before you ever walk in — walk in.</p>
+      <div class="chooser rv d3">
+        <p class="chooser-q">Let's get the awkward part over with.</p>
+        <div class="chips">
+          <a class="chip" href="#s1">Where do I park?</a>
+          <a class="chip" href="#s4">What about my kids?</a>
+          <a class="chip" href="#s5">What do I wear?</a>
+          <a class="chip" href="#s3">Will I fit in?</a>
+          <a class="chip" href="#s6">How long is it?</a>
+        </div>
+        <a class="walk-all" href="#s1">…or just walk me through it all <span>↓</span></a>
+      </div>
+      <div class="note rv d4">
+        <span class="nlabel">The concept</span>
+        <p class="ntxt">A guided, first-person walk-through of a Sunday — built for the nervous first-time guest. It answers the questions people are too embarrassed to ask out loud, <b>before they ever set foot in the building.</b></p>
+        <div class="nrow"><b>Opening move:</b> name the emotion (nervous) in sentence one, then hand over control — they can jump straight to their specific worry instead of being forced through a linear tour.</div>
+        <div class="nrow" style="margin-top:.65rem;color:#9fb1c2"><b style="color:var(--amber-lt)">Tip:</b> use the toggle (top-right) to hide this commentary and see it exactly as a guest would.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 PARKING -->
+  <section class="scene" id="s1" data-step="1" data-label="Pulling in" style="--tone:radial-gradient(120% 100% at 72% 10%, #2c577d 0%, #1b3a5c 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.6-4.6A2 2 0 0 1 8.5 7h7a2 2 0 0 1 1.9 1.4L19 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7" cy="15.5" r="1"/><circle cx="17" cy="15.5" r="1"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">01</div>
+      <h2 class="rv d1">You <em>found</em> us.</h2>
+      <p class="rv d2">4570 Mackinaw Rd. A big lot, easy in and out. Roll up about ten minutes early and you'll have your pick of spots.</p>
+      <span class="pill rv d3">Easy in, easy out</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">The first real unknown is logistics — where to go and whether they'll look lost pulling in.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Where do I even go?"</div>
+        <div class="nrow"><b>Design move:</b> a concrete address + "arrive ten minutes early" gives them a plan, not a guess.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 DOOR -->
+  <section class="scene alt" id="s2" data-step="2" data-label="The front door" style="--tone:radial-gradient(120% 100% at 26% 18%, #20486f 0%, #16314F 50%, #0b1d30 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><circle cx="14.5" cy="12" r=".7"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">02</div>
+      <h2 class="rv d1">Which <em>door?</em></h2>
+      <p class="rv d2">Easy — just walk toward the people. Head for the main doors and a greeter's there to point you exactly where to go.</p>
+      <span class="pill rv d3">Someone's expecting you</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">The wrong-entrance moment is a real first-visit dread. A promised greeter means no one walks in confused.</p>
+        <div class="nrow"><b>Fear it kills:</b> "What if I pick the wrong door?"</div>
+        <div class="nrow"><b>Design move:</b> "walk toward the people" — one human instruction, zero map-reading.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 LOBBY -->
+  <section class="scene" id="s3" data-step="3" data-label="Welcome in" style="--tone:radial-gradient(120% 100% at 70% 16%, #5a4a39 0%, #2a3a4e 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h12v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M16 9h2.2a2 2 0 0 1 0 4H16"/><path d="M7 3v2.2M10 3v2.2M13 3v2.2"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">03</div>
+      <h2 class="rv d1">Coffee's <em>on us.</em></h2>
+      <p class="rv d2">Grab a cup, take a breath, look around. No badge, no spotlight — just slip in, get comfortable, and be exactly who you are.</p>
+      <span class="pill rv d3">No one will single you out</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">Lowers the social temperature. The #1 first-visit fear is being singled out — so we name it and kill it outright.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Everyone will know I'm new."</div>
+        <div class="nrow"><b>Design move:</b> coffee gives their hands something to do so they're not standing there exposed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 KIDS -->
+  <section class="scene alt" id="s4" data-step="4" data-label="Your kids" style="--tone:radial-gradient(120% 110% at 50% 12%, #2f5d86 0%, #1d4067 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">04</div>
+      <h2 class="rv d1">Your kids are <em>safe.</em></h2>
+      <p class="rv d2">Secure check-in: your child gets a name tag, you get the match, and only you can pick them up. They'll have a blast — you'll actually get to listen.</p>
+      <span class="pill rv d3">Matched, secure check-in</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">For parents this is make-or-break. Concrete secure check-in detail earns trust fast.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Are my kids actually safe here?"</div>
+        <div class="nrow"><b>Design move:</b> lead with safety, then the payoff — "you'll actually get to listen."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 SEAT -->
+  <section class="scene" id="s5" data-step="5" data-label="Find a seat" style="--tone:radial-gradient(120% 100% at 30% 18%, #234566 0%, #16314F 50%, #0b1d30 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V6.5A2.5 2.5 0 0 1 8.5 4h7A2.5 2.5 0 0 1 18 6.5V10"/><path d="M5 10h14a1 1 0 0 1 1 1v3H4v-3a1 1 0 0 1 1-1z"/><path d="M6 14v6M18 14v6"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">05</div>
+      <h2 class="rv d1">Sit <em>anywhere.</em></h2>
+      <p class="rv d2">Jeans, hoodie, whatever you've got on — come as you are. Sit wherever you like. No pressure to sing, stand, or be anyone but you.</p>
+      <span class="pill rv d3">Come as you are</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">Answers "what do I wear" and "what's expected of me" in one breath, and removes performance pressure.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Will I stick out or do the wrong thing?"</div>
+        <div class="nrow"><b>Design move:</b> "come as you are" — permission, not rules. No obligation to sing or stand.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 SERVICE -->
+  <section class="scene alt" id="s6" data-step="6" data-label="The service" style="--tone:radial-gradient(95% 85% at 50% 0%, #3a6e8f 0%, #16314F 40%, #06101c 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">06</div>
+      <h2 class="rv d1">The next <em>hour or so.</em></h2>
+      <p class="rv d2">A few songs — sing along or just take it in. A quick welcome. And a message that's real talk you can actually use by Monday.</p>
+      <span class="pill rv d3">About 75 minutes, start to finish</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">Demystifies the unknown middle — what happens, in what order, and for how long.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Will I be trapped or lost in rituals I don't know?"</div>
+        <div class="nrow"><b>Design move:</b> a concrete runtime (~75 min) + "useful by Monday" reframes the message as relevant, not preachy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 AFTER -->
+  <section class="scene" id="s7" data-step="7" data-label="After" style="--tone:radial-gradient(120% 100% at 72% 82%, #4d4534 0%, #243a52 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-4.5A8 8 0 1 1 21 12z"/><path d="M12 13.2s-2.4-1.5-2.4-3.2a1.4 1.4 0 0 1 2.4-.9 1.4 1.4 0 0 1 2.4.9c0 1.7-2.4 3.2-2.4 3.2z"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">07</div>
+      <h2 class="rv d1">When it <em>ends.</em></h2>
+      <p class="rv d2">Want to talk, pray, or just grab info? Stop by and say hi. No pressure, no chase — the next move is always yours.</p>
+      <span class="pill rv d3">The next move is always yours</span>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">Handles exit-anxiety — the fear of being cornered or pressured on the way out.</p>
+        <div class="nrow"><b>Fear it kills:</b> "Will they chase me to come back?"</div>
+        <div class="nrow"><b>Design move:</b> "the next move is always yours" — control stays with the guest.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="scene final" id="s8" data-step="8" data-label="See you Sunday" style="--tone:radial-gradient(120% 110% at 50% 100%, #6b5224 0%, #1d3a5a 46%, #0E2438 100%)">
+    <div class="ghost" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></svg></div>
+    <div class="wrap scene-inner">
+      <div class="num-lg rv">08</div>
+      <h2 class="rv d1">We saved you a <em>seat.</em></h2>
+      <p class="rv d2" style="margin-inline:auto">That's it. No surprises — just show up, and we've got the rest.</p>
+      <div class="corner rv d2">We're in your corner.</div>
+      <div class="acts rv d3">
+        <a class="btn btn-amber" href="https://gracevalleychurch.churchcenter.com/people/forms/1105254" target="_blank" rel="noopener">Plan Your Visit</a>
+        <a class="btn btn-ghost" href="https://gracevalleychurch.churchcenter.com/channels/26716" target="_blank" rel="noopener">▶ Watch a Service First</a>
+      </div>
+      <a href="#top" class="restart rv d3">↻ Watch the walk-through again</a>
+      <div class="note rv d4">
+        <span class="nlabel">The intent</span>
+        <p class="ntxt">Warm close, one clear next step. Converts a now-calm visitor into action.</p>
+        <div class="nrow"><b>Fear it kills:</b> none left — that's the whole point.</div>
+        <div class="nrow"><b>Design move:</b> two CTAs matched to readiness — ready to come (Plan a Visit) vs. still cautious (watch online first).</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="tour" aria-label="Walk-through controls">
+  <button id="tprev" aria-label="Previous step" disabled>↑</button>
+  <button id="tnext" aria-label="Next step">↓</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <img class="flogo" src="logo-white.png" alt="Grace Valley Church">
+      <div class="socials">
+        <a href="https://facebook.com/mygracevalley" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a href="https://instagram.com/gracevalleymi" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+        <a href="https://youtube.com/@GraceValleyChurch" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Grace Valley Church · Assemblies of God</span>
+      <span>Believe. Belong. Become.</span>
+    </div>
+    <div style="text-align:center;margin-top:16px;font-size:.72rem;letter-spacing:.07em;color:#65788a;opacity:.85">Designed &amp; developed by <a href="#" style="color:inherit;border-bottom:1px dotted rgba(255,255,255,.28)">SunThread</a></div>
+  </div>
+</footer>
+
+<script>
+  // commentary toggle
+  const ct=document.getElementById('ctoggle');
+  ct.addEventListener('click',()=>{
+    const hidden=document.body.classList.toggle('hide-notes');
+    ct.textContent=hidden?'+ Show commentary':'– Hide commentary';
+  });
+
+  // reveal
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.18});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // progress: which scene is centered
+  const scenes=[...document.querySelectorAll('.scene')];
+  const pnum=document.getElementById('pnum'),plbl=document.getElementById('plbl'),pbar=document.getElementById('pbar');
+  const total=scenes.length-1;
+  const tprev=document.getElementById('tprev'),tnext=document.getElementById('tnext');
+  let cur=0,locked=false;
+  function setTour(){tprev.disabled=cur<=0;tnext.disabled=cur>=total;}
+  function paint(i){pnum.textContent=String(i).padStart(2,'0');plbl.textContent=scenes[i].dataset.label;pbar.style.width=(i/total*100)+'%';setTour();}
+  const so=new IntersectionObserver((es)=>{
+    if(locked) return;                          // ignore intermediate scenes during a programmatic snap
+    es.forEach(e=>{if(e.isIntersecting){cur=+e.target.dataset.step;paint(cur);}});
+  },{threshold:.5});
+  scenes.forEach(s=>so.observe(s));
+
+  /* ===== FULL-PAGE SLIDE CONTROLLER: one gesture = one slide ===== */
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function snapTo(i){
+    i=Math.max(0,Math.min(total,i));
+    locked=true;cur=i;paint(i);
+    scenes[i].scrollIntoView({behavior:reduced?'auto':'smooth'});
+    const release=()=>{locked=false;window.removeEventListener('scrollend',release);};
+    window.addEventListener('scrollend',release,{once:true});
+    setTimeout(release,reduced?120:1200);       // fallback if scrollend unsupported / no scroll fired
+  }
+  // tour buttons + keyboard
+  tnext.addEventListener('click',()=>snapTo(cur+1));
+  tprev.addEventListener('click',()=>snapTo(cur-1));
+  window.addEventListener('keydown',e=>{
+    if(/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)||e.target.isContentEditable) return;
+    if(locked) return;
+    if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();snapTo(cur+1);}
+    else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();snapTo(cur-1);}
+  });
+  // wheel — hijack to advance one slide at a time
+  let lastWheel=0;
+  window.addEventListener('wheel',(e)=>{
+    if(reduced) return;                         // let reduced-motion users scroll freely
+    const el=scenes[cur], r=el.getBoundingClientRect();
+    const overflowing = r.height > window.innerHeight+4;
+    if(overflowing){                            // tall slide (e.g. intro on small screens): scroll within first
+      if(e.deltaY>0 && r.bottom > window.innerHeight+4) return;
+      if(e.deltaY<0 && r.top < -4) return;
+    }
+    if(cur>=total && e.deltaY>0) return;        // at the end, release to the footer
+    if(cur>=total && e.deltaY<0 && scenes[total].getBoundingClientRect().top>4){
+      e.preventDefault(); if(!locked) snapTo(total); return;   // coming back up from footer → last slide
+    }
+    e.preventDefault();
+    if(locked||Math.abs(e.deltaY)<6) return;
+    const now=Date.now(); if(now-lastWheel<700) return;        // swallow trackpad inertia tail
+    lastWheel=now;
+    snapTo(cur + (e.deltaY>0?1:-1));
+  },{passive:false});
+  // touch swipe
+  let ty=null;
+  window.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:true});
+  window.addEventListener('touchend',e=>{
+    if(ty===null||locked) return;
+    const el=scenes[cur], r=el.getBoundingClientRect();
+    const dy=ty-e.changedTouches[0].clientY;
+    if(Math.abs(dy)<45){ty=null;return;}
+    const overflowing = r.height > window.innerHeight+4;
+    if(overflowing){
+      if(dy>0 && r.bottom > window.innerHeight+4){ty=null;return;}
+      if(dy<0 && r.top < -4){ty=null;return;}
+    }
+    if(cur>=total && dy>0){ty=null;return;}
+    if(cur>=total && dy<0 && scenes[total].getBoundingClientRect().top>4){if(!locked)snapTo(total);ty=null;return;}
+    snapTo(cur + (dy>0?1:-1));
+    ty=null;
+  },{passive:true});
+  // chooser chips + walk-all + restart jump straight to a slide
+  document.querySelectorAll('.chip,.walk-all,a[href="#top"]').forEach(a=>{
+    a.addEventListener('click',ev=>{
+      const id=a.getAttribute('href').slice(1);
+      const idx=scenes.findIndex(s=>s.id===id || (id==='top' && s.id==='top'));
+      if(idx>=0){ev.preventDefault();snapTo(idx);}
+    });
+  });
+  setTour();
+</script>
+</body>
+</html>
